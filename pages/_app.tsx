@@ -55,7 +55,22 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                 routerProvider={routerProvider}
                 dataProvider={dataProvider(API_URL)}
                 notificationProvider={notificationProvider}
+                //In the context of a CRUD application, a resource typically refers to a data entity that
+                // can be created, read, updated, or deleted.
                 resources={[
+                  {
+                    //nome do item no menu:
+                    name: "languages",
+                    //caminho de cada pasta para cada rota (/create, /show...)
+                    list: "/languages",
+                    create: "/languages/create",
+                    edit: "/languages/edit/:id",
+                    show: "/languages/show/:id",
+                    //prop se permite delete ou não:
+                    meta: {
+                      canDelete: true,
+                    },
+                  },
                   {
                     name: "blog_posts",
                     list: "/blog-posts",
